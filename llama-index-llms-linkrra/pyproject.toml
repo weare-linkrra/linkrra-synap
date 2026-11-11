@@ -1,0 +1,37 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "llama-index-llms-linkrra"
+version = "0.1.0"
+description = "LlamaIndex LLM integration for Linkrra Synap, an OpenAI-compatible inference API for open models."
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+requires-python = ">=3.10,<4.0"
+authors = [{ name = "Linkrra", email = "weare@linkrra.com" }]
+keywords = ["llama-index", "llm", "openai-compatible", "linkrra", "synap", "open-models"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Intended Audience :: Developers",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "llama-index-core>=0.13.0,<0.15",
+    "llama-index-llms-openai-like>=0.5.0,<0.9",
+]
+
+[project.urls]
+Homepage = "https://synap402.com"
+Source = "https://github.com/weare-linkrra/linkrra-synap/tree/main/llama-index-llms-linkrra"
+Models = "https://synap402.com/v1/models"
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["llama_index"]
+
+[tool.hatch.build.targets.sdist]
+include = ["llama_index", "tests", "README.md", "LICENSE"]

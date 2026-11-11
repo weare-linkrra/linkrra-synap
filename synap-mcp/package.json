@@ -1,0 +1,70 @@
+{
+  "name": "synap-mcp",
+  "version": "0.1.1",
+  "mcpName": "com.synap402/synap-mcp",
+  "description": "MCP server for Synap by Linkrra: OpenAI-compatible inference on self-hosted open models. Chat, live model list, and task tools (summarize a URL, review a diff, extract JSON, describe an image). Pay with an API key, or per call in USDC over x402 (Base or Solana) with no account.",
+  "type": "module",
+  "bin": {
+    "synap-mcp": "dist/index.js"
+  },
+  "main": "dist/server.js",
+  "types": "dist/server.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/server.d.ts",
+      "import": "./dist/server.js"
+    }
+  },
+  "files": [
+    "dist",
+    "!dist/**/*.map",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "rm -rf dist && tsc -p tsconfig.build.json && chmod +x dist/index.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --test --experimental-strip-types test/*.test.ts",
+    "test:e2e": "npm run build && node test/e2e-stdio.mjs",
+    "prepack": "npm run build"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "model-context-protocol",
+    "modelcontextprotocol",
+    "synap",
+    "linkrra",
+    "llm",
+    "inference",
+    "inference-api",
+    "ai-agent",
+    "open-models",
+    "openai-compatible",
+    "x402",
+    "usdc",
+    "claude",
+    "cursor"
+  ],
+  "author": "Linkrra <weare@linkrra.com> (https://synap402.com)",
+  "license": "MIT",
+  "homepage": "https://synap402.com",
+  "engines": {
+    "node": ">=20.3"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "@solana/kit": "^8.6.0",
+    "@x402/core": "~2.30.0",
+    "@x402/evm": "~2.30.0",
+    "@x402/fetch": "~2.30.0",
+    "@x402/svm": "~2.30.0",
+    "ajv": "^8.20.0",
+    "viem": "^2.57.16",
+    "zod": "^4.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.19.2",
+    "typescript": "~5.9.3"
+  }
+}

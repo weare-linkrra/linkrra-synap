@@ -1,0 +1,40 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "langchain-linkrra"
+version = "0.1.0"
+description = "LangChain chat model for Linkrra Synap, an OpenAI-compatible inference API for open models."
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+requires-python = ">=3.10,<4.0"
+authors = [{ name = "Linkrra", email = "weare@linkrra.com" }]
+keywords = ["langchain", "llm", "openai-compatible", "linkrra", "synap", "open-models"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Intended Audience :: Developers",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "langchain-core>=1.0.0,<2.0.0",
+    "langchain-openai>=1.0.0,<2.0.0",
+]
+
+[project.urls]
+Homepage = "https://synap402.com"
+Source = "https://github.com/weare-linkrra/linkrra-synap/tree/main/langchain-linkrra"
+Models = "https://synap402.com/v1/models"
+
+[project.optional-dependencies]
+test = ["pytest>=8", "pytest-asyncio>=0.23"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["langchain_linkrra"]
+
+[tool.hatch.build.targets.sdist]
+include = ["langchain_linkrra", "tests", "README.md", "LICENSE"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
