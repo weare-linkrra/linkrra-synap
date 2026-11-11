@@ -21,12 +21,15 @@ client launches it with `npx`.
      "command": "npx",
      "args": ["-y", "synap-mcp"],
      "env": { "SYNAP_API_KEY": "<the user's Synap API key>" },
+     "timeout": 60,
      "disabled": false,
      "autoApprove": []
    }
    ```
 
-   If the user has no key yet, omit the `env` block entirely.
+   If the user has no key yet, omit the `env` block entirely. Keep
+   `"timeout": 60`: the first `npx` start downloads the package and can take
+   longer than a client's default handshake timeout.
 3. Save the file. The client starts the server; it should report 6 tools:
    `chat`, `list_models`, `summarize_url`, `review_diff`, `extract_json`,
    `describe_image`.

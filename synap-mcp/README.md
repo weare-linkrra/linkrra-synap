@@ -42,6 +42,7 @@ claude mcp add synap -e SYNAP_API_KEY=sk-... -- npx -y synap-mcp
          "command": "npx",
          "args": ["-y", "synap-mcp"],
          "env": { "SYNAP_API_KEY": "sk-..." },
+         "timeout": 60,
          "disabled": false,
          "autoApprove": []
        }
@@ -49,6 +50,7 @@ claude mcp add synap -e SYNAP_API_KEY=sk-... -- npx -y synap-mcp
    }
    ```
 
+   `timeout` gives `npx` time to download the package on first start.
    Step-by-step notes for agents installing this server: [`llms-install.md`](llms-install.md).
 
 3. Ask your agent: *"Use synap to review my staged diff"*, or *"summarize https://example.com with synap"*.
