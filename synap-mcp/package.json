@@ -66,5 +66,10 @@
   "devDependencies": {
     "@types/node": "^24.19.2",
     "typescript": "~5.9.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/weare-linkrra/linkrra-synap.git",
+    "directory": "synap-mcp"
   }
 }
