@@ -1,0 +1,55 @@
+{
+    "name": "synap402",
+    "engine": "openai",
+    "display_name": "Synap402",
+    "description": "Synap402 (by Linkrra): open-weight models (Qwen3 Coder, Qwen3, Qwen3 VL, Gemma 4, gpt-oss, Muse Glimmer) served on Linkrra's own GPUs behind an OpenAI-compatible API, billed per token. Every listed model supports tool calling and streaming. The same endpoint also accepts x402 (USDC on Base or Solana) for wallet-based pay-per-call access with no account or API key -- see the x402 note in README.md; goose's custom-provider mechanism itself only speaks the api_key_env route below.",
+    "api_key_env": "LINKRRA_API_KEY",
+    "base_url": "https://synap402.com/v1/chat/completions",
+    "requires_auth": true,
+    "supports_streaming": true,
+    "dynamic_models": false,
+    "models": [
+        {
+            "name": "qwen3-coder-30b",
+            "context_limit": 98304,
+            "input_token_cost": 6.75e-08,
+            "output_token_cost": 2.7e-07
+        },
+        {
+            "name": "qwen/qwen3-30b-a3b-instruct-2507",
+            "context_limit": 98304,
+            "input_token_cost": 8.1267e-08,
+            "output_token_cost": 2.438e-07
+        },
+        {
+            "name": "qwen/qwen3-vl-30b-a3b-instruct",
+            "context_limit": 65536,
+            "input_token_cost": 1.4e-07,
+            "output_token_cost": 5.5e-07
+        },
+        {
+            "name": "gemma-4-26b-a4b-it",
+            "context_limit": 32768,
+            "input_token_cost": 4e-08,
+            "output_token_cost": 2.1e-07
+        },
+        {
+            "name": "gpt-oss-20b",
+            "context_limit": 65536,
+            "input_token_cost": 1.7e-08,
+            "output_token_cost": 8.5e-08
+        },
+        {
+            "name": "meta/muse-glimmer-30b",
+            "context_limit": 131072,
+            "input_token_cost": 2.8e-07,
+            "output_token_cost": 1.1e-06
+        }
+    ],
+    "model_doc_link": "https://synap402.com/docs",
+    "setup_steps": [
+        "Sign in at https://synap402.com/login.html and create an API key (qwen3-coder-30b has a free tier: 100,000 tokens/day for the first 7 days, then 50,000/day, no card needed)",
+        "Paste the key as LINKRRA_API_KEY (or export LINKRRA_API_KEY in your shell)",
+        "Pick a model: qwen3-coder-30b is the recommended default for coding sessions"
+    ]
+}
